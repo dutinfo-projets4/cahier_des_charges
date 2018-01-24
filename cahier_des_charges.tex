@@ -18,7 +18,7 @@
 
 \author{Nathan JANCZEWSKI, Léo BERGEROT}
 
-\newcommand\softname{Alohomora}
+\newcommand\softname{Alohomora\ }
 \newcommand{\writecol}[1] {
 	\subitem{\textcolor[HTML]{#1}{\# #1}}
 }
@@ -49,16 +49,16 @@
 
 	\chapter{Présentation du projet}
 	\vspace{2cm}
-	\par Ce projet pour le quatrième semestre du DUT Informatique à pour but de créer un gestionnaire de mot de passe.
+	\par Ce projet pour le quatrième semestre du DUT Informatique a pour but de créer un gestionnaire de mot de passe.
 	\vspace{.5cm}
-	\par Un gestionnaire de mot de passe est un logiciel permettant de n'avoir qu'à retenir un seul mot de passe pour tous ses comptes, le tout sans compromettre leurs sécurité. Pour cela, il va générer des mots de passes qui ne seront pas à retenir par l'utilisateur à l'exception du "mot de passe maitre" qui permet alors leurs chiffrement.
+	\par Un gestionnaire de mot de passe est un logiciel permettant de n'avoir à retenir qu'un seul mot de passe pour tous ses comptes, le tout sans compromettre leur sécurité. Pour cela, il va générer des mots de passe qui ne seront pas à retenir par l'utilisateur à l'exception du "mot de passe maître" qui permet alors leur chiffrement.
 	\vspace{.5cm}
-	\par Bien evidemment, la sécurité du logiciel repose sur le fait que l'utilisateur choisisse un mot de passe suffisament fort dès le début, mais délesté de devoir retenir tous les différents mots de passes pour différents sites, il peut alors en retenir un seul plus conséquent.
+	\par Bien évidemment, la sécurité du logiciel repose sur le fait que l'utilisateur choisisse un mot de passe suffisament fort dès le début, mais délesté de devoir retenir tous les différents mots de passe pour différents sites, il peut alors en retenir un seul plus conséquent.
 	\vspace{.5cm}
-	\par Contrairement aux alternatives opensources telles que KeePass ou Encryptr, \softname permettera l'utilisation d'un compte relié à un serveur afin que l'utilisateur n'ait pas à gérer le fichier contenant les mots de passes et puisse se connecter de n'importe quelle machine sans attendre la syncronisation via de tiers services.
+	\par Contrairement aux alternatives opensources telles que KeePass ou Encryptr, \softname permettera l'utilisation d'un compte relié à un serveur afin que l'utilisateur n'ait pas à gérer le fichier contenant les mots de passes et puisse se connecter de n'importe quelle machine sans attendre la synchronisation via de tiers services.
 
 	\vspace{.5cm}
-	\par De plus, l'application sera aussi bien disponible dans un navigateur (Ordinateur, tablette, téléphone) qu'en application smartphone afin de facilité l'usage.
+	\par De plus, l'application sera aussi bien disponible dans un navigateur (Ordinateur, tablette, téléphone) qu'en application smartphone afin de faciliter l'usage.
 
 	\newpage
 
@@ -71,7 +71,7 @@
 
 	\section{Objectifs de l'application}
 	{
-		\par L'application à pour but de stocker les mot de passes des utilisateurs l'utilisant. Cependant, l'utilisateur pourra aussi stocker d'autres informations, tels que des mémos.
+		\par L'application a pour but de stocker les mot de passes des utilisateurs l'utilisant. Cependant, l'utilisateur pourra aussi stocker d'autres informations, telles que des mémos.
 		\vspace{.5cm}
 		\par Afin d'être sécurisé, l'hébergeur ne doit pas pouvoir savoir quels sont les différentes informations stockées par l'utilisateur sur le serveur, ainsi un chiffrement total des données transitant vers l'hébergeur et y résidant devra être effectué via un algorithme symétrique, le tout ne dévoilant pas la clé à la personne chargée de l'hébergement.
 	}
@@ -81,14 +81,14 @@
 		\par L'application vise deux types de personnes:
 		\begin{itemize}
 			\item Les néophytes \par Ces derniers ne voulant simplement qu'utiliser le gestionnaire de mot de passes peuvent alors utiliser une version hébergée par un tiers de l'application.
-			\item Les confirmés \par Ceux-ci préfèrent héberger leurs propre serveur afin de ne pas dépendre d'un tiers et de ne pas avoir à faire confiance à un hébergeur (Même si le fonctionnement de l'application ne doit pas laisser ce dernier en conaissance des éléments stockés par l'utilisateur)
+			\item Les confirmés \par Ceux-ci préfèrent héberger leur propre serveur afin de ne pas dépendre d'un tiers et de ne pas avoir à faire confiance à un hébergeur (Même si le fonctionnement de l'application ne doit pas laisser ce dernier en connaissance des éléments stockés par l'utilisateur)
 		\end{itemize}
 	}
 
 	\section{Langues}
 	{
-		\par Un simple système de traduction sera mis en place afin de laisse la possibilité à l'utilisateur de sélectionner la langue dans laquelle il est le plus à l'aise.
-		\par La traduction sera fait via un simple fichier de propriété classique.
+		\par Un simple système de traduction sera mis en place afin de laisser la possibilité à l'utilisateur de sélectionner la langue dans laquelle il est le plus à l'aise.
+		\par La traduction sera faite via un simple fichier de propriétés classique.
 	}
 
 	\section{Maquette}
@@ -104,10 +104,10 @@
 		\begin{itemize}
 			\item Système de comptes
 			\item Sélection du serveur sur lequel on est inscrit (Hébergé soi même)
-			\item Génération de mot de passes aléatoire
-			\item Groupes de mots de passes
+			\item Génération de mots de passe aléatoire
+			\item Groupes de mots de passe
 			\item Possibilité d'enregistrer des notes
-			\item Possibilité d'enregistrer des URL (Marque pages)
+			\item Possibilité d'enregistrer des URL (Marque-Pages)
 		\end{itemize}
 	}
 
@@ -135,20 +135,20 @@
 	{
 		\par Le projet est décomposé en plusieurs parties:
 		\begin{itemize}
-			\item \par Une API Web codé en Symfony 4 reposant sur un serveur MySQL pour la gestion des données utilisateurs.\\
+			\item \par Une API Web codée en Symfony 4 reposant sur un serveur MySQL pour la gestion des données utilisateur.\\
 			\item \par Un client JavaFX pour le logiciel principal\\
-			\item \par En fonction du temps disponible, un client Web (ReactJS) et un client Android seront créé. L'utilisation de la bibliothèque Retrofit pour le client JavaFX permettera un portage plus simple vers Android.
+			\item \par En fonction du temps disponible, un client Web (ReactJS) et un client Android seront créés. L'utilisation de la bibliothèque Retrofit pour le client JavaFX permettra un portage plus simple vers Android.
 		\end{itemize}
 	}
 
 	\section{Hébergement}
 	{
-		\par Le projet serait hébergé sur un serveur personnel.
+		\par Le projet sera hébergé sur un serveur personnel.
 		\par Il sera accessible via le sous-domaine \textit{https://projets4.oxodao.fr/}.
 	}
 
 	\chapter{Planning prévisionnel}
-	\par L'utilisation de la méthode agile \textit{SCRUM} implique que nous recueillerons les fonctions essentiel à partir du cahier des charges et des users stories, par conséquent nous écrirons des \textit{backlogs} du produit (liste des fonctionnalités) qui seront classées par priorité, permettant de définir l'ordre de réalisation et ensuite les \textit{sprints} serons réalisés avec toute l'équipe de développement en décidant du sous-ensemble qui sera à réalisé à chaque fois.
+	\par L'utilisation de la méthode agile \textit{SCRUM} implique que nous recueillerons les fonctions essentielles à partir du cahier des charges et des users stories, par conséquent nous écrirons des \textit{backlogs} du produit (liste des fonctionnalités) qui seront classées par priorité, permettant de définir l'ordre de réalisation et ensuite les \textit{sprints} seront réalisés avec toute l'équipe de développement en décidant du sous-ensemble qui sera à réaliser à chaque fois.
 
 	\chapter{Budget}
 	\par Étant un projet universitaire, aucun budget n'est alloué à la création du projet.
