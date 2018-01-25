@@ -34,11 +34,11 @@
 		{\par\scshape\Huge Cahier des charges\par}
 		\vspace{5cm}
 		{\par Gestionnaire de mot de passes\par}
-		{\par WebApp et API\par}
+		{\par Application et API\par}
 		\vfill
-		\par Contact:
-		{\par\small Mr.\ Jerôme CUTRONA \par}
-		\par jerome.cutrona@univ-reims.fr\
+		% \par Contact:
+		% {\par\small Mr.\ Jerôme CUTRONA \par}
+		% \par jerome.cutrona@univ-reims.fr\
 	\end{titlepage}
 
 	\pagestyle{fancy}
@@ -71,7 +71,7 @@
 
 	\section{Objectifs de l'application}
 	{
-		\par L'application a pour but de stocker les mot de passes des utilisateurs l'utilisant. Cependant, l'utilisateur pourra aussi stocker d'autres informations, telles que des mémos.
+		\par L'application a pour but de stocker les mot de passes des utilisateurs l'utilisant. Cependant, l'utilisateur pourra aussi stocker d'autres informations, telles que des mémos ou des favoris internet.
 		\vspace{.5cm}
 		\par Afin d'être sécurisé, l'hébergeur ne doit pas pouvoir savoir quels sont les différentes informations stockées par l'utilisateur sur le serveur, ainsi un chiffrement total des données transitant vers l'hébergeur et y résidant devra être effectué via un algorithme symétrique, le tout ne dévoilant pas la clé à la personne chargée de l'hébergement.
 	}
@@ -99,15 +99,21 @@
 		\noindent\makebox[\textwidth]{\includegraphics[scale=.5]{maquette_app}}
 	}
 
+	\section{Schéma d'utilisation}
+	{
+		\noindent\makebox[\textwidth]{\includegraphics[scale=.5]{usecase}}
+	}
+
 	\section{Fonctionnalités}
 	{
 		\begin{itemize}
 			\item Système de comptes
-			\item Sélection du serveur sur lequel on est inscrit (Hébergé soi même)
-			\item Génération de mots de passe aléatoire
-			\item Groupes de mots de passe
+			\item Inscription
+			\item Sélection du serveur sur lequel on est inscrit (URL)
 			\item Possibilité d'enregistrer des notes
 			\item Possibilité d'enregistrer des URL (Marque-Pages)
+			\item Groupes d'éléments (Mots de passe, Mémos, Marques-pages)
+			\item Génération de mots de passe aléatoire
 		\end{itemize}
 	}
 
@@ -125,7 +131,7 @@
 				\writecol{2C375A}
 				\writecol{016937}
 				\writecol{06a75b}\\
-			\item Typographie: Hack\\
+			\item Typographie: Hack patchée avec NerdFont pour les icones\\
 			\item{Logo:}\\
 				\par\includegraphics[scale=.125]{logo}
 		\end{itemize}
@@ -137,7 +143,7 @@
 		\begin{itemize}
 			\item \par Une API Web codée en Symfony 4 reposant sur un serveur MySQL pour la gestion des données utilisateur.\\
 			\item \par Un client JavaFX pour le logiciel principal\\
-			\item \par En fonction du temps disponible, un client Web (ReactJS) et un client Android seront créés. L'utilisation de la bibliothèque Retrofit pour le client JavaFX permettra un portage plus simple vers Android.
+			\item \par En fonction du temps disponible, un client Web (ReactJS) et un client smartphone (React Native) seront créés. 
 		\end{itemize}
 	}
 
