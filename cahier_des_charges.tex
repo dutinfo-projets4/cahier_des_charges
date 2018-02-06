@@ -36,9 +36,9 @@
 		{\par Gestionnaire de mot de passes\par}
 		{\par Application et API\par}
 		\vfill
-		% \par Contact:
-		% {\par\small Mr.\ Jerôme CUTRONA \par}
-		% \par jerome.cutrona@univ-reims.fr\
+		\par Contact:
+		{\par\small Mr.\ Jerôme CUTRONA \par}
+		\par jerome.cutrona@univ-reims.fr\
 	\end{titlepage}
 
 	\pagestyle{fancy}
@@ -103,6 +103,7 @@
 	{
 		\noindent\makebox[\textwidth]{\includegraphics[scale=.5]{usecase}}
 	}
+	\newpage
 
 	\section{Fonctionnalités}
 	{
@@ -137,21 +138,24 @@
 		\end{itemize}
 	}
 
-	\section{Développement}
-	{
-		\par Le projet est décomposé en plusieurs parties:
-		\begin{itemize}
-			\item \par Une API Web codée en Symfony 4 reposant sur un serveur MySQL pour la gestion des données utilisateur.\\
-			\item \par Un client JavaFX pour le logiciel principal\\
-			\item \par En fonction du temps disponible, un client Web (ReactJS) et un client smartphone (React Native) seront créés. 
-		\end{itemize}
-	}
-
 	\section{Hébergement}
 	{
 		\par Le projet sera hébergé sur un serveur personnel.
-		\par Il sera accessible via le sous-domaine \textit{https://projets4.oxodao.fr/}.
+		\par Il sera accessible via nom de domaine \textit{https://alohomora.pw/}.
+		\par Le domaine de premier niveau choisi étant une référence à "\textbf{p}ass\textbf{w}ord"
 	}
+
+	\chapter{Développement}
+	\par Le projet est décomposé en plusieurs parties:
+	\begin{itemize}
+		\item \par Une API Web codée en Symfony 4 reposant sur un serveur MySQL pour la gestion des données utilisateur.\\
+		\item \par Un client JavaFX pour le logiciel principal\\
+		\item \par En fonction du temps disponible, un client Web (ReactJS) et un client smartphone (React Native) seront créés. 
+	\end{itemize}
+	\section{Base de donnée}
+	\includegraphics[scale=2]{mcd}
+
+	\section{User stories}
 
 	\chapter{Planning prévisionnel}
 	\par L'utilisation de la méthode agile \textit{SCRUM} implique que nous recueillerons les fonctions essentielles à partir du cahier des charges et des users stories, par conséquent nous écrirons des \textit{backlogs} du produit (liste des fonctionnalités) qui seront classées par priorité, permettant de définir l'ordre de réalisation et ensuite les \textit{sprints} seront réalisés avec toute l'équipe de développement en décidant du sous-ensemble qui sera à réaliser à chaque fois.
