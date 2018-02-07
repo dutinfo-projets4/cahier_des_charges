@@ -1,7 +1,7 @@
 main:
 	pdflatex cahier_des_charges.tex
 
-complementaire:
+tech:
 	pdflatex doc_compl.tex
 
 clean:

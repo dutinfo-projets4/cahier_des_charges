@@ -31,7 +31,7 @@
 		\centering
 		\includegraphics[scale=.5]{logo_large}
 		\vspace{5cm}
-		{\par\scshape\Huge Documents complémentaires\par}
+		{\par\scshape\Huge Documents techniques\par}
 		\vspace{5cm}
 		{\par Gestionnaire de mot de passes\par}
 		{\par Application et API\par}
@@ -43,14 +43,16 @@
 
 	\pagestyle{fancy}
 	\fancyhf{}
-	\lhead{Documents complémentaires}
+	\lhead{Documents techniques}
 	\rhead{\includegraphics[scale=.25]{logo_large}}
 	\tableofcontents
 
 	\chapter{Informations générales}
 	\vspace{2cm}
-	\par Les requêtes auront lieu à l'URL "https://alohomora.pw/api/". L'API étant basé sur GraphQL, aucune autre route ne sera à prévoir.
-	\par Le serveur pourra au choix activer ou désactiver l'inscription publique (N'importe qui peut s'inscrire), l'inscription via API (L'utilisateur ne pourra s'inscrire que depuis le site web), le nombre de requêtes par minutes (éviter un flood de 'getUpdates').
+	\par Les requêtes auront lieu à l'URL "https://alohomora.pw/api/". L'API étant basé sur GraphQL, aucune autre route ne sera à prévoir.\\
+	\par Le serveur pourra au choix activer ou désactiver l'inscription publique (N'importe qui peut s'inscrire), l'inscription via API (L'utilisateur ne pourra s'inscrire que depuis le site web), le nombre de requêtes par minutes (éviter un flood de 'getUpdates').\\
+
+	\par Les réponses sont envoyé par le serveur au format json.\\
 
 	\chapter{Diagrammes réseau}
 	\vspace{2cm}
@@ -94,5 +96,20 @@
 			\includegraphics[scale=.5]{reseau_update_elt}
 		\end{center}
 	}
+
+	\chapter{Client(s)}
+	\section{Sécurité}{
+		\begin{itemize}
+			\item Lors de l'affichage d'une fiche de mot de passe, il ne doit être visible que si l'utilisateur intéragit avec la textfield.
+			\item Un bouton permettant de copier le mot de passe doit être mis à disposition afin que l'utilisateur n'ai pas à afficher son mot de passe obligatoirement.
+		\end{itemize}
+	}
+
+	\section{Ergonomie}{
+		\begin{itemize}
+			\item Raccourcis clavier CTRL+C / CTRL+B pour copier le mot de passe ou le nom d'utilisateur
+		\end{itemize}
+	}
+
 
 \end{document}
