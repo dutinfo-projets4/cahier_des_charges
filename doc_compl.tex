@@ -1,0 +1,98 @@
+\documentclass[oneside]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{graphicx}
+\usepackage[margin=2cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{changepage}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries}{}{20pt}{\Huge}
+
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\graphicspath{{./images/}}
+
+\author{Sylvain COMBRAQUE, Sarah LAMOTTE, Nathan JANCZEWSKI, Léo BERGEROT}
+
+\newcommand\softname{Alohomora\ }
+\newcommand{\writecol}[1]{
+	\subitem{\textcolor[HTML]{#1}{\# #1}}
+}
+
+\patchcmd{\chapter}{plain}{fancy}{}{}
+
+\begin{document}
+
+	\begin{titlepage}
+		\centering
+		\includegraphics[scale=.5]{logo_large}
+		\vspace{5cm}
+		{\par\scshape\Huge Documents complémentaires\par}
+		\vspace{5cm}
+		{\par Gestionnaire de mot de passes\par}
+		{\par Application et API\par}
+		\vfill
+		\par Contact:
+		{\par\small Mr.\ Jerôme CUTRONA \par}
+		\par jerome.cutrona@univ-reims.fr\
+	\end{titlepage}
+
+	\pagestyle{fancy}
+	\fancyhf{}
+	\lhead{Documents complémentaires}
+	\rhead{\includegraphics[scale=.25]{logo_large}}
+	\tableofcontents
+
+	\chapter{Informations générales}
+	\vspace{2cm}
+	\par Les requêtes auront lieu à l'URL "https://alohomora.pw/api/". L'API étant basé sur GraphQL, aucune autre route ne sera à prévoir.
+	\par Le serveur pourra au choix activer ou désactiver l'inscription publique (N'importe qui peut s'inscrire), l'inscription via API (L'utilisateur ne pourra s'inscrire que depuis le site web), le nombre de requêtes par minutes (éviter un flood de 'getUpdates').
+
+	\chapter{Diagrammes réseau}
+	\vspace{2cm}
+	\section{Inscription}{
+		\par L'inscription au serveur est effectué via une requête register.\\
+		\vspace{.5cm}
+		\begin{center}
+			\includegraphics[scale=.5]{reseau_register}
+		\end{center}
+	}
+
+	\section{Connexion}{
+		\par La connexion au serveur permet à l'utilisateur d'obtenir un token lui permettant d'intéragir avec son compte sans que le mot de passe transite. Ce token pourra aussi être révoqué.\\
+		\vspace{.5cm}
+		\begin{center}
+			\includegraphics[scale=.5]{reseau_connexion}
+		\end{center}
+	}
+
+	\section{Récupérer les changements côté serveur}{
+		\par Le client peut demander au serveur tous ce qui a changé sur son compte depuis sa dernière mise à jour.
+		\par Par défaut, le client peut demander à un interval régulier des mises à jour, cependant le serveur peut refuser et demander au client une synchronisation manuelle via un bouton "Refresh"
+		\begin{center}
+			\includegraphics[scale=.5]{reseau_getupdates}
+		\end{center}
+	}
+
+	\section{Ajout d'un élément}{
+		\par Pour ajouter un élément, le client fait une requête en joignant un élément JSON chiffré.
+		\par Afin de respecter une cohérence entre les clients, un schéma nécessaire est fourni dans les chapitres suivant de ce document.
+		\begin{center}
+			\includegraphics[scale=.5]{reseau_add_elt}
+		\end{center}
+
+	}
+
+	\section{Modification ou suppression d'un élément}{
+		\par De la même façon que pour ajouter un élément, un client peut le modifier en renvoyant ce dernier et en précisant son ID.
+		\par Pour supprimer un élément, le client envoie une requête de modification sans paramètre du contenu.
+		\begin{center}
+			\includegraphics[scale=.5]{reseau_update_elt}
+		\end{center}
+	}
+
+\end{document}
