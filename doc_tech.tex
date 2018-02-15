@@ -8,6 +8,7 @@
 \usepackage{changepage}
 \usepackage{etoolbox}
 \usepackage{xcolor}
+\usepackage{listings}
 \usepackage{titlesec}
 
 \titleformat{\chapter}[display]
@@ -24,6 +25,14 @@
 }
 
 \patchcmd{\chapter}{plain}{fancy}{}{}
+
+
+\lstset{
+	string=[s]{"}{"},
+	stringstyle=\color{blue},
+	comment=[l]{:},
+	commentstyle=\color{black},
+}
 
 \begin{document}
 
@@ -98,6 +107,28 @@
 	}
 
 	\chapter{Client(s)}
+	\section{Structuration des données}{
+		\subsection{Contenu d'un élément} {
+			\vspace{1cm}
+			\begin{lstlisting}
+				{
+					"type": 0,
+					"id": 1,
+					"name": "Name of the element which will be displayed",
+					"customField": "value",
+					"customField2": "value"
+				}
+			\end{lstlisting}
+			\vspace{1cm}
+			\par Le champ type peut prendre les valeurs 0 dans le cas d'un élément de type "Mot de passe", 1 dans le cas d'un élément de type "Mémo" et 2 dans le cas d'un élément de type "Marque-page".
+			\par L'id est un identifiant afin que le client puisse effectuer des requêtes tels que la modification sur un élément.
+			\par Le champ nom est le texte affiché quand on souhaite séléctionner un élément afin que l'utilisateur puisse l'identifier.
+			\par Après ces champs, dans le cas d'un mot de passe, les autres champs disponibles sont "username", "password" et "url".
+			\par Dans le cas d'un mémo le seul champ supplémentaire est un champ "Contenu" qui contiendra le texte du mémo écrite en Markdown.
+			\par Enfin, dans le cas d'un marque page, le champ supplémentaire sera "url"
+			\par Cependant, des champs personnalisés (Ici représenté par "customfield" et "customfield2") seront ajoutable par l'utilisateur. Il n'y a pas de limite au nombre de champs, l'interface devant donc s'y adapter.
+		}
+	}
 	\section{Sécurité}{
 		\begin{itemize}
 			\item Lors de l'affichage d'une fiche de mot de passe, il ne doit être visible que si l'utilisateur intéragit avec la textfield.

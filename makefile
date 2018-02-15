@@ -2,7 +2,7 @@ main:
 	pdflatex cahier_des_charges.tex
 
 tech:
-	pdflatex doc_compl.tex
+	pdflatex doc_tech.tex
 
 clean:
 	rm -rf *.aux *.dvi *.toc *.log
