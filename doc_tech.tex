@@ -10,6 +10,7 @@
 \usepackage{xcolor}
 \usepackage{listings}
 \usepackage{titlesec}
+\usepackage{tabu}
 
 \titleformat{\chapter}[display]
 {\normalfont\huge\bfseries}{}{20pt}{\Huge}
@@ -158,6 +159,31 @@
 	\chapter{Envoie de requêtes}
 	\section{Endpoints}{
 		\par Liste des endpoints
+		\par
+		\begin{tabu} to \textwidth {|X|X|X|X|X|}
+			\hline
+			Endpoint & Méthode & Description & Permissions & Paramètres \\
+			\hline
+			/users & GET & Liste des utilisateurs & Administrateur & - \\
+			- & PUT & Inscription d'un utilisateur & Config & - \\
+			- & POST & Login & Tous le monde & - \\
+			- & DELETE & Suppression d'un utilisateur & Administrateur & - \\
+			- & PATCH & Édition d'un utilisateur & Administrateur & - \\
+			\hline
+			/token & DELETE & Révoquer un token & Utilisateur du token & - \\
+			\hline
+			/challenge & GET & Générer un challenge & Tous le monde & - \\
+			\hline
+			/config & GET & Obtenir la configuration du serveur & Administrateur & - \\
+			- & PUT & Sauvegarder la nouvelle configuration & Administrateur & - \\
+			\hline
+			/element | /groupe & POST & Ajout & Utilisateur & -\\
+			- & PUT & Modification & Utilisateur & -\\
+			- & DELETE & Suppression & Utilisateur & -\\
+			\hline
+			/update & GET & Obtenir les éléments changés depuis la dernière requête & Utilisateur & - \\
+			\hline
+		\end{tabu}
 	}
 
 	\section{Création d'une requête}{
