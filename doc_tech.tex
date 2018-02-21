@@ -75,6 +75,7 @@
 
 	\section{Connexion}{
 		\par La connexion au serveur permet à l'utilisateur d'obtenir un token lui permettant d'intéragir avec son compte sans que le mot de passe transite. Ce token pourra aussi être révoqué.\\
+		\par Lors de la connexion, le client doit générer un couple clé publique / privé OpenPGP. La clé publique est envoyée durant la connexion afin que le serveur puisse reconnaître le client. Cela permettra par la suite la signature des messages.
 		\vspace{.5cm}
 		\begin{center}
 			\includegraphics[scale=.5]{reseau_connexion}
@@ -115,24 +116,27 @@
 					"type": 0,
 					"id": 1,
 					"name": "Name of the element which will be displayed",
-					"customField": "value",
-					"customField2": "value"
+					"customField": { value: "value", hidden: false },
+					"customField2": { value: "value", hidden: true }
 				}
 			\end{lstlisting}
 			\vspace{1cm}
-			\par Le champ type peut prendre les valeurs 0 dans le cas d'un élément de type "Mot de passe", 1 dans le cas d'un élément de type "Mémo" et 2 dans le cas d'un élément de type "Marque-page".
+			\par Le champ type peut prendre les valeurs 0 dans le cas d'un élément de type "Mot de passe", 1 dans le cas d'un élément de type "Mémo" et 2 dans le cas d'un élément de type "Marque-page". Si la valeur du type est -1.
 			\par L'id est un identifiant afin que le client puisse effectuer des requêtes tels que la modification sur un élément.
 			\par Le champ nom est le texte affiché quand on souhaite séléctionner un élément afin que l'utilisateur puisse l'identifier.
 			\par Après ces champs, dans le cas d'un mot de passe, les autres champs disponibles sont "username", "password" et "url".
 			\par Dans le cas d'un mémo le seul champ supplémentaire est un champ "Contenu" qui contiendra le texte du mémo écrite en Markdown.
 			\par Enfin, dans le cas d'un marque page, le champ supplémentaire sera "url"
-			\par Cependant, des champs personnalisés (Ici représenté par "customfield" et "customfield2") seront ajoutable par l'utilisateur. Il n'y a pas de limite au nombre de champs, l'interface devant donc s'y adapter.
+			\par Cependant, des champs personnalisés (Ici représenté par "customfield" et "customfield2") seront ajoutable par l'utilisateur. Il n'y a pas de limite au nombre de champs, l'interface devant donc s'y adapter. Hidden implique que la valeur du champ doit être caché.
 		}
 	}
 	\section{Sécurité}{
 		\begin{itemize}
 			\item Lors de l'affichage d'une fiche de mot de passe, il ne doit être visible que si l'utilisateur intéragit avec la textfield.
 			\item Un bouton permettant de copier le mot de passe doit être mis à disposition afin que l'utilisateur n'ai pas à afficher son mot de passe obligatoirement.
+			\item Afin de ne pas pouvoir déduire la longueur du mot de passe, quand il n'est pas affiché une taille fixe pour tous les mots de passes sera utilisée.
+			\item Lors du changement de mot de passe, tous les tokens de l'utilisateur sont supprimés.
+			\item Un mail peut être envoyé à la connexion d'un utilisateur.
 		\end{itemize}
 	}
 
@@ -142,5 +146,30 @@
 		\end{itemize}
 	}
 
+	\chapter{Serveur}
+	\section{Configuration}{
+		\par Un assistant d'installation devra-être créé.
+		\begin{itemize}
+			\item Autoriser ou interdir l'inscription.
+			\item Le serveur peut demander au client de ne pas effectuer des requêtes à interval fixe, dans ce cas, une limite peut être fixée afin de bloquer les requêtes pour éviter le DoS.
+		\end{itemize}
+	}
+
+	\chapter{Envoie de requêtes}
+	\section{Endpoints}{
+		\par Liste des endpoints
+	}
+
+	\section{Création d'une requête}{
+		\par Lors de la création d'une requête, à l'exception de Register, Login et Challenge, le client doit spécifier trois header.
+		\begin{itemize}
+			\item X-ALOHOMORA-TOKEN: Il correspond au token d'authentification de l'utilisateur et de la machine.
+			\item X-ALOHOMORA-SIGNATURE: Signature du message pour la clé publique associée au token
+			\item User-Agent: Client utilisé pour accéder au service.
+		\end{itemize}
+
+		\par L'User-Agent du client officiel est "Alohomora-Client/{OS}", où OS est PC, IOS ou ANDROID.
+		\par Le corps de la requête devra contenir un numéro de requête unique au token. Cela permet donc d'éviter les attaques de type Replay. En effet, le serveur sait le numéro de la dernière requête et peut aussi vérifier la signature de la requête.
+	}
 
 \end{document}
