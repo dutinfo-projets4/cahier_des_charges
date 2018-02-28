@@ -41,7 +41,7 @@
 
 	\begin{titlepage}
 		\centering
-		\includegraphics[scale=.5]{logo_large}
+		\includegraphics[scale=.125]{logo_large}
 		\vspace{5cm}
 		{\par\scshape\Huge Documents techniques\par}
 		\vspace{5cm}
@@ -56,7 +56,7 @@
 	\pagestyle{fancy}
 	\fancyhf{}
 	\lhead{Documents techniques}
-	\rhead{\includegraphics[scale=.25]{logo_large}}
+	\rhead{\includegraphics[scale=.075]{logo_large}}
 	\tableofcontents
 
 	\chapter{Informations générales}
@@ -132,8 +132,8 @@
 		"type": 0,
 		"id": 1,
 		"name": "Name of the element which will be displayed",
-		"customField": { value: "value", hidden: false },
-		"customField2": { value: "value", hidden: true }
+		"customField": { value: "value", "hidden": false },
+		"customField2": { value: "value", "hidden": true }
 	}
 			\end{lstlisting}
 			\vspace{1cm}
@@ -185,7 +185,8 @@
 			& DELETE & Suppression d'un utilisateur & Administrateur & - \\
 			& PATCH & Édition d'un utilisateur & Administrateur & - \\
 			\hline
-			/token & DELETE & Révoquer un token & Utilisateur du token & - \\
+			/token & PUT & Révoquer un token & Utilisateur du token & - \\
+			- & PUT & Supprimer un token & Utilisateur du token & - \\
 			\hline
 			/challenge & GET & Générer un challenge & Tous le monde & - \\
 			\hline
@@ -193,12 +194,14 @@
 			& PUT & Sauvegarder la nouvelle configuration & Administrateur & - \\
 			\hline
 			/element & POST & Ajout & Utilisateur & -\\
-			/groupe & PUT & Modification & Utilisateur & -\\
+			/group & PUT & Modification & Utilisateur & -\\
 			& DELETE & Suppression & Utilisateur & -\\
 			\hline
 			/update & GET & Obtenir les éléments changés depuis la dernière requête & Utilisateur & - \\
 			\hline
 		\end{tabu}
+
+		\par Une version plus à jour et plus complète de cette documentation est disponible à l'adresse https://docs.alohomora.pw/
 	}
 
 \end{document}
