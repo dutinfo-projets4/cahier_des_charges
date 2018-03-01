@@ -61,7 +61,7 @@
 
 	\chapter{Informations générales}
 	\vspace{2cm}
-	\par Les requêtes auront lieu à l'URL "https://alohomora.pw/api/". L'API étant basé sur GraphQL, aucune autre route ne sera à prévoir.\\
+	\par Les requêtes auront lieu à l'URL "HOST/api/". L'API étant basé sur le principe REST, diverses routes sont décrites si-dessous.\\
 	\par Le serveur pourra au choix activer ou désactiver l'inscription publique (N'importe qui peut s'inscrire), l'inscription via API (L'utilisateur ne pourra s'inscrire que depuis le site web), le nombre de requêtes par minutes (éviter un flood de 'getUpdates').\\
 
 	\par Les réponses sont envoyé par le serveur au format json.\\
@@ -166,8 +166,10 @@
 	\section{Configuration}{
 		\par Un assistant d'installation devra-être créé.
 		\begin{itemize}
-			\item Autoriser ou interdire l'inscription.
-			\item Le serveur peut demander au client de ne pas effectuer des requêtes à interval fixe, dans ce cas, une limite peut être fixée afin de bloquer les requêtes pour éviter le DoS.
+			\item Autoriser ou interdire l'inscription via l'API.
+			\item Rendre le serveur privé (Désactiver l'inscription publique).
+			\item L'utilisation d'un captcha.
+			\item La limite du nombre de requêtes update par minutes.
 		\end{itemize}
 	}
 
